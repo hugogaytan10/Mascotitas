@@ -2,14 +2,6 @@
     width: 100%;
 }
 
-.contenedor-img {
-    width: 0;
-}
-
-.contenedor-img>img {
-    width: 0;
-}
-
 .contenedor-form {
     position: relative;
     margin: auto;

@@ -1,0 +1,129 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: rgb(63, 94, 251);
+    background: linear-gradient(90deg, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 0.6) 100%);
+    
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(0, 0, 0);
+}
+.menu-icono{
+    margin-top: 5px;
+    display: block;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+.menu-icono:hover{
+    cursor: pointer;
+}
+.rayas{
+    margin-top: 3px;
+    height: 3px;
+    width: 70%;
+    background-color: rgb(0, 0, 0);
+    transition: all 0.5s;
+}
+.menu-icono:hover > #raya2{
+    width: 0;
+}
+.menu-icono:hover > .rayas{
+    position: absolute;
+}
+.menu-icono:hover > #raya1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    rotate: 45deg;
+    align-self: center;
+    transition: all 0.5s;
+}
+.menu-icono:hover > #raya3 {
+    left: 50%;
+    transform: translate(-50%,-50%);
+    rotate: -45deg;
+    transition: all 0.5s;
+}
+.registro-header > p{
+    color: #000;
+    z-index: 1000;
+    visibility: visible;
+}
+.contenedor-header{
+    width: 0;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    background-color: rgba(139, 134, 134, 0.5);
+    transition: all 0.5s;
+    z-index: 100;
+}
+.nav-menu{
+    width: 0;
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    transition: all 0.7s;
+    visibility: hidden;
+}
+.nav-menu > ul {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style: none;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+}
+.nav-menu > ul > li > a{
+    margin: 0;
+    padding: 30px 10px;
+    text-decoration: none;
+    display: block;
+    color: rgb(255, 255, 255);
+    font-weight: 100;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1.3em;
+}
+
+@media (min-width: 500px){
+    .nav-menu {
+        width: 100%;
+    }
+    .nav-menu > ul > li > a{
+        transition: all 0s;
+        margin-top: 20px;
+    }
+    .nav-menu>ul {
+        width: 30%;
+        margin: 0;
+        padding: 0;
+        display: block;
+        justify-content: space-around;
+        list-style: none;
+        background-color: black;
+    }
+    .nav-menu > ul > li >a {
+        text-decoration: none;
+        display: inline-block;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    .item-menu:hover>a {
+        width: 90%;
+        padding-left: 50px;
+        border-bottom: 1px solid #fff;
+        background-color: rgb(224, 31, 108);
+        border-top-right-radius: 16px;
+    }
+    
+}

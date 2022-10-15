@@ -1,0 +1,223 @@
+.seccion-registro {
+    width: 100%;
+}
+
+.contenedor-img {
+    width: 0;
+}
+
+.contenedor-img>img {
+    width: 0;
+}
+
+.contenedor-form {
+    position: relative;
+    margin: auto;
+    margin-top: 50px;
+    width: 90%;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.09);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+}
+
+.contenedor-form>input,
+.loginPc>input {
+    z-index: 1000;
+    display: block;
+    margin: auto;
+    width: 70%;
+    margin-top: 10px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: rgba(255, 255, 255, 0.09);
+    color: #fff;
+}
+
+.contenedor-form>input::placeholder,
+.loginPc>input::placeholder {
+    color: #fff
+}
+
+.contenedor-form>input[type=submit] {
+    background-color: rgba(255, 255, 255, 0.566);
+    color: #000;
+    border-radius: 16px;
+    border: none;
+    width: 30%;
+    transition: all 1.2s;
+}
+
+.contenedor-form>input[type=submit]:hover {
+    width: 45%;
+    cursor: pointer;
+}
+
+.contenedor-form:hover {
+    box-shadow: 1px 1px 10px rgb(224, 31, 108, 0.6);
+}
+
+.abrirModal {
+    display: inline-block;
+    color: #fff;
+    font-weight: 100;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    transition: all 1s;
+    margin-left: 30px;
+}   
+
+.abrirModal:hover {
+    margin-right: 50px;
+    cursor: pointer;
+    transform: scale(1.15);
+}
+
+.login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.879);
+    border-radius: 16px;
+    margin: auto;
+    visibility: hidden;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.cerrarModal {
+    position: absolute;
+    display: inline-block;
+    top: -5%;
+    left: 97%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: #fff;
+    border-radius: 50%;
+    width: 25px;
+}
+
+.cerrarModal:hover {
+    cursor: pointer;
+}
+
+.login>input {
+    display: block;
+    background-color: rbga(0, 0, 0, 0);
+    color: #000;
+    margin: auto;
+    width: 70%;
+    margin-top: 10px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #000;
+}
+
+.btn-enviar {
+    margin: 10px 0px 0px 10px;
+    width: 50%;
+    border: none;
+    border-radius: 16px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.31);
+    color: #000;
+    transition: all 1.2s;
+}
+
+.btn-enviar:hover {
+    width: 45%;
+    cursor: pointer;
+}
+
+.loginPc {
+    visibility: hidden;
+}
+.loginPc:hover{
+    border:1px solid rgba(63, 94, 251, 1);
+}
+.modalNoEncontrado{
+    width: 50%;
+    height: auto;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgba(250, 10, 17, 1);
+    border-radius: 16px;
+    visibility: hidden;
+}
+.modalNoEncontrado > p{
+    display: block;
+}
+.modalNoEncontrado > button{
+    height: 35px;
+    width: 40%;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 16px;
+}
+.btn-si{
+    background-color: rgb(128, 173, 251);
+}
+.btn-si:hover, .btn-no:hover{
+    cursor: pointer;
+}
+#datosFaltantes{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(0, 0, 0);
+    margin-left: 10px;
+}
+@media screen and (min-width: 500px) {
+    .abrirModal {
+        visibility: hidden;
+    }
+
+    .seccion-registro {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .contenedor-form {
+        width: 60%;
+        margin: auto;
+    }
+
+    .loginPc {
+        visibility: visible;
+        width: 30%;
+        height: 250px;
+        margin: auto;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.09);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border-radius: 16px;
+    }
+    .cerrarModal{
+        visibility: hidden;
+    }
+    .loginPc > h3{
+        color: #fff;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1.3em;
+    }
+    .btn-enviar{
+        color: #fff;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 1.1em;
+    }
+    .btn-enviar:hover{
+        background: rgba(255, 255, 255, 0.7);
+        width: 55%;
+        color: #000;
+    }
+}

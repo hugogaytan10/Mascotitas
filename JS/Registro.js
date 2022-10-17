@@ -24,8 +24,8 @@ const login = async (device) => {
     try {
         //verificamos si ya esta logeado en localStorage
         let userLocalStorage = JSON.parse(window.localStorage.getItem("login"));
-        if(userLocalStorage.name !== undefined){
-            msg.innerHTML = 'EL USUARIO YA ESTA LOGEADO'
+        if(userLocalStorage !== null){
+            msg.innerHTML = 'EL USUARIO YA ESTA LOGEADO';
             return;
         }
         //VERIFICAMOS EL USUARIO ASYNCRONO
@@ -34,6 +34,7 @@ const login = async (device) => {
             msg.innerHTML = ("Bienvenido");
             msg.style.color = 'red';
         } else {
+            
             //MOSTRAMOS EL MODAL DE USUARIO NO ENCONTRADO
             this.document.getElementById('modalNoEncontrado').style.visibility = 'visible';
             this.document.getElementById('bienvenido' + device).innerHTML = ("");

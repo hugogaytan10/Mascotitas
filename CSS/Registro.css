@@ -167,6 +167,16 @@
     color: rgb(0, 0, 0);
     margin-left: 10px;
 }
+.logOut{
+    position: absolute;
+    top: 30px;
+    text-align: right;
+    color: #fff;
+    font-size: 1.3em;
+    display: block;
+    right: 10px;
+    cursor: pointer;
+}
 @media screen and (min-width: 500px) {
     .abrirModal {
         visibility: hidden;

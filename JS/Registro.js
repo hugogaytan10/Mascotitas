@@ -137,3 +137,9 @@ const modalAddUser = async (answer) => {
         this.document.getElementById('modalNoEncontrado').style.visibility = 'hidden';
     }
 }
+//salirse de la sesion
+const LogOut = async () => {
+    this.window.localStorage.removeItem('arreglo');
+    this.window.localStorage.removeItem('login');
+    this.location.reload();
+}

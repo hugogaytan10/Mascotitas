@@ -16,7 +16,7 @@ function checkGame(idButton, i, j) {
         //el juaego acaba de iniciar y debemos poner 
         //la primer imagen (GATO)
         if (contador === 0) {
-            button.src = './Gato/gatito.webp';
+            button.src = 'https://res.cloudinary.com/ravekh/image/upload/v1666016078/Macotitas/gatito_vjks3t.webp';
             button.style.cursor = "default";
             matriz[i][j] = 1
             contador++;
@@ -25,7 +25,7 @@ function checkGame(idButton, i, j) {
         //segunda imagen (RATON)
         if (contador % 2 !== 0) {
             if(matriz[i][j]==null){
-                button.src = './Gato/perrito.jpg';
+                button.src = 'https://res.cloudinary.com/ravekh/image/upload/v1666016078/Macotitas/perrito_vzlpph.jpg';
                 button.style.cursor = "default";
                 matriz[i][j] = 2;
                 contador++;
@@ -33,8 +33,7 @@ function checkGame(idButton, i, j) {
             }
         }else{
             if(matriz[i][j]==null){
-                button.src = './Gato/gatito.webp';
-                button.style.cursor = "default";
+                button.src = 'https://res.cloudinary.com/ravekh/image/upload/v1666016078/Macotitas/gatito_vjks3t.webp';
                 matriz[i][j] = 1;
                 contador++;
                 turno.innerHTML='Turno del perro'
@@ -99,7 +98,7 @@ function clean(){
     turno.style.fontSize = '40px';
 
     images.forEach(element =>{
-        element.src='./Gato/fondo.jpg';
+        element.src='https://res.cloudinary.com/ravekh/image/upload/v1666016078/Macotitas/fondo_hterh7.jpg';
         element.style.cursor = "pointer";
     })
 

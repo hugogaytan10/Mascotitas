@@ -3,6 +3,7 @@
     flex-wrap: wrap;
 }
 .informacion-principal{
+    height: 350px;
     margin: auto;
     margin: 0px 10px 20px 10px;
     font-weight: 100;
@@ -17,6 +18,7 @@
 
 .informacion-secundaria{
     margin: auto;
+    margin-top: 10px;
     font-weight: 100;
     padding: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -25,11 +27,12 @@
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
+    margin-bottom: 50px;
 }
 
-@media screen and (min-width: 500px){
+@media screen and (min-width: 700px){
     .informacion-principal{
-        width: 50%;
+        width: 60%;
     }
     .informacion-secundaria{
         width: 25%;

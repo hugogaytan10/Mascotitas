@@ -10,31 +10,38 @@ let objUsuario = {
     phone: '',
     pass: ''
 };
+
 //Mínimo ocho caracteres, al menos una letra y un número:
 const erPass = /^[A-Za-z]+[0-9]+/;
-const login = async(device) => {
+const login = async (device) => {
     event.preventDefault();
     //RESCATAMOS EL USUARIO Y CONTRASENIA 
     //DEPENDIENDO SI ES MOVIL O PC
-    let mail = document.getElementById("email"+device).value;
-    let pass = document.getElementById("password"+device).value
+    let mail = document.getElementById("email" + device).value;
+    let pass = document.getElementById("password" + device).value;
+    let msg = this.document.getElementById('bienvenido' + device);
     //SI SE ENCUENTRA EL USUARIO LE DAMOS LA BIENVENIDA
-    try{
+    try {
+        //verificamos si ya esta logeado en localStorage
+        let userLocalStorage = JSON.parse(window.localStorage.getItem("login"));
+        if(userLocalStorage.name !== undefined){
+            msg.innerHTML = 'EL USUARIO YA ESTA LOGEADO'
+            return;
+        }
         //VERIFICAMOS EL USUARIO ASYNCRONO
         const user = await verificarUser(mail, pass);
         if (user) {
-            let msg = this.document.getElementById('bienvenido'+device);
-            msg.innerHTML=("Bienvenido");
+            msg.innerHTML = ("Bienvenido");
             msg.style.color = 'red';
         } else {
             //MOSTRAMOS EL MODAL DE USUARIO NO ENCONTRADO
             this.document.getElementById('modalNoEncontrado').style.visibility = 'visible';
-            this.document.getElementById('bienvenido'+device).innerHTML=("");
+            this.document.getElementById('bienvenido' + device).innerHTML = ("");
         }
-    }catch(e) {return false;}
-    
+    } catch (e) { return false; }
+
 }
-const sigup = async() =>{
+const sigup = async () => {
     let msgAlert = 'Faltan los siguientes datos: ';
     event.preventDefault();
     let usuario = document.getElementById("name").value;
@@ -53,7 +60,7 @@ const sigup = async() =>{
         msgAlert += "Telefono vacio <br/>"
     }
     if (add === "") {
-        msgAlert+="Direccion vacia <br/>"
+        msgAlert += "Direccion vacia <br/>"
     }
     if (!email.match(er)) {
         msgAlert += "Formato de correo no valido <br/>";
@@ -80,17 +87,18 @@ const sigup = async() =>{
             pass: pass
         };
         await insertar(objUsuario);
-    }else{
+    } else {
         this.document.getElementById('datosFaltantes').innerHTML = msgAlert;
     }
 
 }
 
-const verificarUser = async(mail, pass) =>{
+const verificarUser = async (mail, pass) => {
     let datos = JSON.parse(localStorage.getItem('arreglo'));
-    if(datos){
+    if (datos) {
         for (const element of datos) {
             if (element.mail == mail && element.pass == pass) {
+                window.localStorage.setItem("login", JSON.stringify(element));
                 return true;
             }
         }
@@ -98,7 +106,7 @@ const verificarUser = async(mail, pass) =>{
     return false;
 }
 
-const insertar = async(obj) => {
+const insertar = async (obj) => {
     if (localStorage.getItem("arreglo") == null) {
         localStorage.setItem("arreglo", "[]");
     }
@@ -107,25 +115,25 @@ const insertar = async(obj) => {
     localStorage.setItem("arreglo", JSON.stringify(datos));
 }
 //ABRIR MODAL EN MOVIL
-const abrirModal = async() =>{
-    let abrir =  document.getElementById('login');
+const abrirModal = async () => {
+    let abrir = document.getElementById('login');
     abrir.style.visibility = 'visible';
 }
 //CERRAR EL MODAL EN EL MOVIL DEL LOGIN
-const cerrarModal = async() =>{
+const cerrarModal = async () => {
     let btn = document.getElementById('btn-entrar');
     btn.style.transition = 'all 0s';
     let cerrar = document.getElementById('login');
     cerrar.style.visibility = 'hidden';
 }
 //AGREGAR EL USUARIO QUE NO ENCONTRO
-const modalAddUser = async(answer) =>{
+const modalAddUser = async (answer) => {
     const textInput = this.document.getElementById('emailPc').value !== '' ? this.document.getElementById('emailPc').value : this.document.getElementById('emailMovil').value;
-    if(answer === 'SI'){
+    if (answer === 'SI') {
         this.document.getElementById('mail').value = textInput;
         this.document.getElementById('login').style.visibility = 'hidden';
         this.document.getElementById('modalNoEncontrado').style.visibility = 'hidden';
-    }else{
+    } else {
         this.document.getElementById('modalNoEncontrado').style.visibility = 'hidden';
     }
 }

@@ -1,4 +1,4 @@
-function openMenu(){
+const openMenu = async() => {
     let iconMenu = document.getElementById('openMenu');
     let nav = document.getElementById("nav-menu");
     let overlay = document.getElementById("contenedor-header");
@@ -10,7 +10,7 @@ function openMenu(){
     nav.style.visibility = 'visible';
     nav.style.width = '70%';
 }
-function cerrarMenu(){
+const cerrarMenu = async() =>{
     let iconMenu = document.getElementById('openMenu');
     let nav = document.getElementById("nav-menu");
     let overlay = document.getElementById("contenedor-header");
@@ -22,4 +22,10 @@ function cerrarMenu(){
     nav.style.transition = 'all 0s';
     nav.style.visibility = 'hidden';
     nav.style.width = '0%';
+}
+//VERIFICAR SI TENEMOS EL USUARIO LOGEADO
+const UserLogin = async () => {
+    let user = window.localStorage.getItem("login");
+    let userParse = JSON.parse(user);
+    this.document.getElementById("userName").textContent = userParse.name + " " + userParse.lastName;
 }

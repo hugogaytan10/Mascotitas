@@ -8,7 +8,7 @@
         <script src="./JS/Registro.js"></script>
         <script src="./JS/Menu.js"></script>
     </head>
-    <body>
+    <body onload="UserLogin()">
         <header class="header-registro">
             <div id = 'openMenu' onclick="openMenu()" class="menu-icono">
                 <div class="rayas" id="raya1"></div>
@@ -37,7 +37,8 @@
                 </nav>
             </div>
         </header>
-        <section class="seccion-registro"> 
+        <section class="seccion-registro">
+            <p id="userName"></p> 
             <form 
             class="contenedor-form"
             >          

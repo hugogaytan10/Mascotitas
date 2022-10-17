@@ -5,11 +5,13 @@
         <meta name="viewport" content="width=device-width" />
         <link rel="stylesheet" href="./CSS/AcercaDe.css" />
         <link rel="stylesheet" href="./CSS/Menu.css" />
+        <link rel="stylesheet" href="./Gato/gato.css" />
+        <script src="./Gato/gato.js"></script>
         <script src="./JS/Menu.js"></script>
     </head>
-    <body>
+    <body onload="UserLogin()">
         <header class="header-registro">
-            <div id = 'openMenu' onclick="openMenu()" class="menu-icono">
+            <div id= 'openMenu' onclick="openMenu()" class="menu-icono">
                 <div class="rayas" id="raya1"></div>
                 <div class="rayas" id="raya2"></div>
                 <div class="rayas" id="raya3"></div>
@@ -39,6 +41,7 @@
             </div>
         </header>
         <main class="main">
+            <p id="userName"></p>
             <section class="informacion-principal">
                 <article>
                     Lorem ipsum dolor sit amet consectetur
@@ -56,7 +59,47 @@
                 </article>
             </section>
             <aside class="informacion-secundaria">
-                <h3>INFORMACION SECUNDARIA</h3>
+                <h1 id="winner"></h1>
+                <h2 id="turn">Turno del gato</h2>
+                <table class="tabla-gato">
+                    <tr>
+                        <td class="celda"><img class="casilla" id="btn1"
+                                onclick="checkGame('btn1', 0, 0)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                        <td class="celda"><img class="casilla" id="btn2"
+                                onclick="checkGame('btn2', 0, 1)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                        <td class="celda"><img class="casilla" id="btn3"
+                                onclick="checkGame('btn3', 0, 2)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                    </tr>
+                    <tr>
+                        <td class="celda"><img class="casilla" id="btn4"
+                                onclick="checkGame('btn4', 1, 0)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                        <td class="celda"><img class="casilla" id="btn5"
+                                onclick="checkGame('btn5', 1, 1)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                        <td class="celda"><img class="casilla" id="btn6"
+                                onclick="checkGame('btn6', 1, 2)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                    </tr>
+                    <tr>
+                        <td class="celda"><img class="casilla" id="btn7"
+                                onclick="checkGame('btn7', 2, 0)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                        <td class="celda"><img class="casilla" id="btn8"
+                                onclick="checkGame('btn8', 2, 1)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                        <td class="celda"><img class="casilla" id="btn9"
+                                onclick="checkGame('btn9', 2, 2)" alt= 'na'
+                                src="./Gato/fondo.jpg" /></td>
+                    </tr>
+                </table>
+                <button id="new" style="visibility: hidden;" class="btn-juego-nuevo"
+                    onclick="clean()">
+                    NuevoJuego
+                </button>
             </aside>
         </main>
     </body>

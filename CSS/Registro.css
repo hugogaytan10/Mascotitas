@@ -175,7 +175,8 @@
     font-size: 1.3em;
     display: block;
     right: 10px;
-    cursor: pointer;
+    background-color: #000;
+    border-radius: 16px;
 }
 @media screen and (min-width: 500px) {
     .abrirModal {

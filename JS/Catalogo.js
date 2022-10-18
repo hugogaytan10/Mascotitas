@@ -17,6 +17,9 @@ const ClosePopUpDetails = async () => {
     //LIMPIAMOS EL ARREGLO AUXILIAR
     positionUser = '';
     this.document.getElementById('detallesProducto').style.visibility = 'hidden';
+    //quitamos el overlay 
+    this.document.getElementById('overlay-detalles-producto').style.backgroundColor = 'none';
+    this.document.getElementById('overlay-detalles-producto').style.visibility = 'hidden';
 }
 const OpenPopUpDetails = async (img, title, idProduct) => {
     //ALMACENAMOS LA IMAGEN AUX 
@@ -31,5 +34,8 @@ const OpenPopUpDetails = async (img, title, idProduct) => {
     positionUser = idProduct;
     //HACEMOS SCROLL AL INICIO DE LA PAGINA
     this.window.scroll(0,0);
+    //ponemos el overlay 
+    this.document.getElementById('overlay-detalles-producto').style.visibility = 'visible';
+    this.document.getElementById('overlay-detalles-producto').style.backgroundColor = 'rgba(139, 134, 134, 0.5)';
     
 }

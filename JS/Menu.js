@@ -26,12 +26,12 @@ const cerrarMenu = async () => {
 //VERIFICAR SI TENEMOS EL USUARIO LOGEADO
 const UserLogin = async () => {
     try {
-        let userLocal = JSON.parse(window.localStorage.getItem('arreglo'));
-        if (userLocal) {
-            let userParse = await verificarLocalUser(userLocal[0].mail, userLocal[0].pass);
+        let userParse = await verificarLocalUser();
+        if (userParse != null) {
             this.document.getElementById("userName").textContent = userParse.name + " " + userParse.lastName;
             //APARECE EL BOTON DE OUT Y DESAPACERE EL DE ENTRAR
             this.document.getElementById('btn-entrar-pc').style.visibility = 'hidden';
+            this.document.getElementById('btn-entrar-pc').style.transition = '0s';
             this.document.getElementById('btn-entrar-movil').style.visibility = 'hidden';
             //MOSTRAMOS UN MENSAJE DE QUE YA ESTA LOGEADO
             let msgPC = this.document.getElementById('bienvenidoPc');
@@ -48,11 +48,11 @@ const UserLogin = async () => {
 
 }
 
-const verificarLocalUser = async (mail, pass) => {
+const verificarLocalUser = async () => {
     let datos = JSON.parse(localStorage.getItem('arreglo'));
     if (datos) {
         for (const element of datos) {
-            if (element.mail == mail && element.pass == pass) {
+            if (element.login) {
                 return element;
             }
         }

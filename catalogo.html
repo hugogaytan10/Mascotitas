@@ -156,28 +156,30 @@
             </section>
         </main>
         <p id="userName"></p>
-        <div class="detalles-producto" id="detallesProducto">
-            <section class="detalles-seccion">
-                <article class="img-detalles">
-                    <img alt='na' id='currentImg'/>
-                </article>
-                <aside class="informacion-producto">
-                    <p class="closePopUpDetails" id="closePopUpDetails"
-                        onclick="ClosePopUpDetails()">X</p>
-                    <p id="titleDetails"></p>
-                    <div class="contenedor-pre-img">
-                        <img src="./recursos/almohada.png" alt="na"
-                            onmouseover="ChangeImgInitial('https://res.cloudinary.com/ravekh/image/upload/v1665857707/Macotitas/collar_cxumgi.png')"
-                            onmouseleave="ChangeImgMouseLeve()">
-                        <img src="./recursos/correa.png" alt="na"
-                            onmouseover="ChangeImgInitial('https://res.cloudinary.com/ravekh/image/upload/v1665857902/Macotitas/almohada_eg7iol.png')"
-                            onmouseleave="ChangeImgMouseLeve()">
-                        <img src="./recursos/tazon.png" alt="na"
-                            onmouseover="ChangeImgInitial('https://res.cloudinary.com/ravekh/image/upload/v1665857889/Macotitas/tazon_srvnrb.png')"
-                            onmouseleave="ChangeImgMouseLeve()">
-                    </div>
-                </aside>
-            </section>
+        <div class="overlay-detalles-producto" onclick="ClosePopUpDetails()" id="overlay-detalles-producto">
+            <div class="detalles-producto" id="detallesProducto">
+                <section class="detalles-seccion">
+                    <article class="img-detalles">
+                        <img alt='na' id='currentImg'/>
+                    </article>
+                    <aside class="informacion-producto">
+                        <p class="closePopUpDetails" id="closePopUpDetails"
+                            onclick="ClosePopUpDetails()">X</p>
+                        <p id="titleDetails"></p>
+                        <div class="contenedor-pre-img">
+                            <img src="./recursos/almohada.png" alt="na"
+                                onmouseover="ChangeImgInitial('https://res.cloudinary.com/ravekh/image/upload/v1665857902/Macotitas/almohada_eg7iol.png')"
+                                onmouseleave="ChangeImgMouseLeve()">
+                            <img src="./recursos/correa.png" alt="na"
+                                onmouseover="ChangeImgInitial('https://res.cloudinary.com/ravekh/image/upload/v1665857727/Macotitas/correa_o4mhz2.png')"
+                                onmouseleave="ChangeImgMouseLeve()">
+                            <img src="./recursos/tazon.png" alt="na"
+                                onmouseover="ChangeImgInitial('https://res.cloudinary.com/ravekh/image/upload/v1665857889/Macotitas/tazon_srvnrb.png')"
+                                onmouseleave="ChangeImgMouseLeve()">
+                        </div>
+                    </aside>
+                </section>
+            </div>
         </div>
     </body>
 </html>

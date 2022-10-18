@@ -23,23 +23,17 @@ const login = async (device) => {
     let msg = this.document.getElementById('bienvenido' + device);
     //SI SE ENCUENTRA EL USUARIO LE DAMOS LA BIENVENIDA
     try {
-        //verificamos si ya esta logeado en localStorage
-        let userLocalStorage = JSON.parse(window.localStorage.getItem("login"));
-        if(userLocalStorage !== null){
-            msg.innerHTML = 'EL USUARIO YA ESTA LOGEADO';
-            return;
-        }
         //VERIFICAMOS EL USUARIO ASYNCRONO
         const user = await verificarUser(mail, pass);
         if (user) {
             msg.innerHTML = ("Bienvenido");
             msg.style.color = 'red';
         } else {
-            
             //MOSTRAMOS EL MODAL DE USUARIO NO ENCONTRADO
             this.document.getElementById('modalNoEncontrado').style.visibility = 'visible';
             this.document.getElementById('bienvenido' + device).innerHTML = ("");
         }
+        this.location.reload();
     } catch (e) { return false; }
 
 }
@@ -80,14 +74,14 @@ const sigup = async () => {
         && phone.match(erphone)
         && lastname !== ""
         && add !== "") {
-        alert("Usuario guardado")
+        this.document.getElementById('datosFaltantes').innerHTML = "USUARIO AGREGADO";
         objUsuario = {
             name: usuario,
             lastName: lastname,
             mail: email,
             phone: phone,
             pass: pass,
-            login: true
+            login: false
         };
         await insertar(objUsuario);
     } else {
@@ -98,11 +92,22 @@ const sigup = async () => {
 
 const verificarUser = async (mail, pass) => {
     let datos = JSON.parse(localStorage.getItem('arreglo'));
+    let auxDatos = [];
+    let bandera = false;
     if (datos) {
         for (const element of datos) {
             if (element.mail == mail && element.pass == pass) {
-                return true;
+                element.login = true;
+                auxDatos.push(element);
+                bandera = true;
+            } else {
+                auxDatos.push(element);
             }
+        }
+        if (bandera) {
+            window.localStorage.removeItem('arreglo');
+            window.localStorage.setItem('arreglo', JSON.stringify(auxDatos));
+            return true;
         }
     }
     return false;
@@ -143,6 +148,18 @@ const modalAddUser = async (answer) => {
 }
 //salirse de la sesion
 const LogOut = async () => {
-    this.window.localStorage.removeItem('arreglo');
+    let datos = JSON.parse(localStorage.getItem('arreglo'));
+    let auxDatos = [];
+    for (const element of datos) {
+        if (element.login) {
+            element.login = false;
+            auxDatos.push(element);
+        } else {
+            auxDatos.push(element);
+        }
+    }
+    console.log(auxDatos)
+    window.localStorage.removeItem('arreglo');
+    window.localStorage.setItem('arreglo', JSON.stringify(auxDatos));
     this.location.reload();
 }

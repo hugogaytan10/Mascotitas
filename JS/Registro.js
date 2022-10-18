@@ -8,7 +8,8 @@ let objUsuario = {
     lastName: '',
     mail: '',
     phone: '',
-    pass: ''
+    pass: '',
+    login: false
 };
 
 //Mínimo Una letra mayuscula y un numero
@@ -85,7 +86,8 @@ const sigup = async () => {
             lastName: lastname,
             mail: email,
             phone: phone,
-            pass: pass
+            pass: pass,
+            login: true
         };
         await insertar(objUsuario);
     } else {
@@ -99,7 +101,6 @@ const verificarUser = async (mail, pass) => {
     if (datos) {
         for (const element of datos) {
             if (element.mail == mail && element.pass == pass) {
-                window.localStorage.setItem("login", JSON.stringify(element));
                 return true;
             }
         }
@@ -143,6 +144,5 @@ const modalAddUser = async (answer) => {
 //salirse de la sesion
 const LogOut = async () => {
     this.window.localStorage.removeItem('arreglo');
-    this.window.localStorage.removeItem('login');
     this.location.reload();
 }

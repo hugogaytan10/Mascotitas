@@ -1,4 +1,4 @@
-const openMenu = async() => {
+const openMenu = async () => {
     let iconMenu = document.getElementById('openMenu');
     let nav = document.getElementById("nav-menu");
     let overlay = document.getElementById("contenedor-header");
@@ -10,7 +10,7 @@ const openMenu = async() => {
     nav.style.visibility = 'visible';
     nav.style.width = '70%';
 }
-const cerrarMenu = async() =>{
+const cerrarMenu = async () => {
     let iconMenu = document.getElementById('openMenu');
     let nav = document.getElementById("nav-menu");
     let overlay = document.getElementById("contenedor-header");
@@ -25,22 +25,37 @@ const cerrarMenu = async() =>{
 }
 //VERIFICAR SI TENEMOS EL USUARIO LOGEADO
 const UserLogin = async () => {
-    let user = window.localStorage.getItem("login");
-    if(user){
-        let userParse = JSON.parse(user);
-        this.document.getElementById("userName").textContent = userParse.name + " " + userParse.lastName;
-        //APARECE EL BOTON DE OUT Y DESAPACERE EL DE ENTRAR
-        this.document.getElementById('btn-entrar-pc').style.visibility = 'hidden';
-        this.document.getElementById('btn-entrar-movil').style.visibility = 'hidden';
-        //MOSTRAMOS UN MENSAJE DE QUE YA ESTA LOGEADO
-        let msgPC =this.document.getElementById('bienvenidoPc');
-        let msgMovil = this.document.getElementById('bienvenidoMovil');
-        msgMovil.innerHTML = 'USUARIO LOGEADO';
-        msgPC.innerHTML = 'USUARIO LOGEADO';
-        msgPC.style.color = 'red';
-        msgMovil.style.color = 'red';
-    }else{
-        this.document.getElementById('btn-out-pc').style.visibility = 'hidden';
-        this.document.getElementById('btn-out-movil').style.visibility = 'hidden';
+    try {
+        let userLocal = JSON.parse(window.localStorage.getItem('arreglo'));
+        if (userLocal) {
+            let userParse = await verificarLocalUser(userLocal[0].mail, userLocal[0].pass);
+            this.document.getElementById("userName").textContent = userParse.name + " " + userParse.lastName;
+            //APARECE EL BOTON DE OUT Y DESAPACERE EL DE ENTRAR
+            this.document.getElementById('btn-entrar-pc').style.visibility = 'hidden';
+            this.document.getElementById('btn-entrar-movil').style.visibility = 'hidden';
+            //MOSTRAMOS UN MENSAJE DE QUE YA ESTA LOGEADO
+            let msgPC = this.document.getElementById('bienvenidoPc');
+            let msgMovil = this.document.getElementById('bienvenidoMovil');
+            msgMovil.innerHTML = 'USUARIO LOGEADO';
+            msgPC.innerHTML = 'USUARIO LOGEADO';
+            msgPC.style.color = 'red';
+            msgMovil.style.color = 'red';
+        } else {
+            this.document.getElementById('btn-out-pc').style.visibility = 'hidden';
+            this.document.getElementById('btn-out-movil').style.visibility = 'hidden';
+        }
+    } catch (e) { console.log(e) }
+
+}
+
+const verificarLocalUser = async (mail, pass) => {
+    let datos = JSON.parse(localStorage.getItem('arreglo'));
+    if (datos) {
+        for (const element of datos) {
+            if (element.mail == mail && element.pass == pass) {
+                return element;
+            }
+        }
     }
+    return null;
 }

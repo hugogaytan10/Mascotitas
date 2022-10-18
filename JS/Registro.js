@@ -122,7 +122,7 @@ const abrirModal = async () => {
 }
 //CERRAR EL MODAL EN EL MOVIL DEL LOGIN
 const cerrarModal = async () => {
-    let btn = document.getElementById('btn-entrar');
+    let btn = document.getElementById('btn-entrar-movil');
     btn.style.transition = 'all 0s';
     let cerrar = document.getElementById('login');
     cerrar.style.visibility = 'hidden';

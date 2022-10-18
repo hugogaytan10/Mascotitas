@@ -168,13 +168,11 @@
     margin-left: 10px;
 }
 .logOut{
-    position: absolute;
-    top: 30px;
-    text-align: right;
-    color: #fff;
-    font-size: 1.3em;
     display: block;
-    right: 10px;
+    margin: auto;
+    width: 45%;
+    height: 35px;
+    color: #fff;
     background-color: #000;
     border-radius: 16px;
 }
@@ -196,7 +194,7 @@
     .loginPc {
         visibility: visible;
         width: 30%;
-        height: 250px;
+        height: auto;
         margin: auto;
         text-align: center;
         background: rgba(255, 255, 255, 0.09);

@@ -39,7 +39,6 @@
         </header>
         <section class="seccion-registro">
             <p id="userName"></p>
-            <button onclick="LogOut()" class="logOut">Out</button> 
             <form 
             class="contenedor-form"
             >          
@@ -57,16 +56,19 @@
                 <p class="cerrarModal" onclick="cerrarModal()">X</p>
                     <input placeholder="Correo" type="email" id="emailMovil"></input>
                     <input placeholder="Contraseña" type="password" id="passwordMovil"></input>
-                    <button value= "Entrar" onclick='login("Movil")' class="btn-enviar" id="btn-entrar">Entrar</button>
+                    <button value= "Entrar" onclick='login("Movil")' class="btn-enviar" id="btn-entrar-movil">Entrar</button>
+                    <button onclick="LogOut()" class="logOut" id="btn-out-movil">Out</button> 
                     <p id="bienvenidoMovil"></p>
             </aside>
         </form>
         <aside class="loginPc" id="loginPc">
+            
             <h3>Ya tengo cuenta</h3>
             <p class="cerrarModal" onclick="cerrarModal()">X</p>
                 <input placeholder="Correo" type="email" id="emailPc"></input>
                 <input placeholder="Contraseña" type="password" id="passwordPc"></input>
-                <button value= "Entrar" onclick='login("Pc")' class="btn-enviar" id="btn-entrar">Entrar</button>
+                <button value= "Entrar" onclick='login("Pc")' class="btn-enviar" id="btn-entrar-pc">Entrar</button>
+                <button onclick="LogOut()" class="logOut" id="btn-out-pc">Out</button> 
                 <p id="bienvenidoPc"></p>
         </aside>
     </section>

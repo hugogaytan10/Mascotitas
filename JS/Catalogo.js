@@ -8,7 +8,7 @@ const ChangeImgMouseLeve = async () => {
     let currentImg = this.document.getElementById('currentImg');
     currentImg.src = imgAux;
 }
-const ChangeTitle = async(title) => {
+const ChangeTitle = async (title) => {
     this.document.getElementById('titleDetails').textContent = title;
 }
 const ClosePopUpDetails = async () => {
@@ -20,6 +20,19 @@ const ClosePopUpDetails = async () => {
     //quitamos el overlay 
     this.document.getElementById('overlay-detalles-producto').style.backgroundColor = 'none';
     this.document.getElementById('overlay-detalles-producto').style.visibility = 'hidden';
+}
+const ClosePopUpDetailsOverlay = async () => {
+    if(window.screen > 500){
+        //RETORNAMOS A SU POSICION INICIAL AL USUARIO
+        this.document.getElementById(positionUser).scrollIntoView();
+        //LIMPIAMOS EL ARREGLO AUXILIAR
+        positionUser = '';
+        this.document.getElementById('detallesProducto').style.visibility = 'hidden';
+        //quitamos el overlay 
+        this.document.getElementById('overlay-detalles-producto').style.backgroundColor = 'none';
+        this.document.getElementById('overlay-detalles-producto').style.visibility = 'hidden';
+    }
+
 }
 const OpenPopUpDetails = async (img, title, idProduct) => {
     //ALMACENAMOS LA IMAGEN AUX 
@@ -33,9 +46,9 @@ const OpenPopUpDetails = async (img, title, idProduct) => {
     //almacenamos la posicion del usuario para despues regresarlo a su poscion original
     positionUser = idProduct;
     //HACEMOS SCROLL AL INICIO DE LA PAGINA
-    this.window.scroll(0,0);
+    this.window.scroll(0, 0);
     //ponemos el overlay 
     this.document.getElementById('overlay-detalles-producto').style.visibility = 'visible';
     this.document.getElementById('overlay-detalles-producto').style.backgroundColor = 'rgba(139, 134, 134, 0.5)';
-    
+
 }

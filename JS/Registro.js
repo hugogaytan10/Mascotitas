@@ -1,7 +1,7 @@
 //EXPRESION PARA VALIDAR UN CORREO INSTITUCIONAL DEL ITSUR
 const er = /^[SGEsge][0-9]{8}[@](alumnos.itsur.edu.mx)$/;
 //EXPRESION PARA QUE TENGA 10 DIGITOS EL NUMERO TELEFONICO
-const erphone = /^[+]?[0-9]{0,2}[0-9]{10}/;
+const erphone = /^[+]?[0-9]{0,2}[0-9]{7,}/;
 //ESTRUCTURA DEL OBJETO USUARIO
 let objUsuario = {
     name: '',
@@ -11,7 +11,7 @@ let objUsuario = {
     pass: ''
 };
 
-//Mínimo ocho caracteres, al menos una letra y un número:
+//Mínimo Una letra mayuscula y un numero
 const erPass = /^[A-Za-z]+[0-9]+/;
 const login = async (device) => {
     event.preventDefault();
@@ -122,6 +122,8 @@ const abrirModal = async () => {
 }
 //CERRAR EL MODAL EN EL MOVIL DEL LOGIN
 const cerrarModal = async () => {
+    //como el boton tiene una transicion se la debemos quitar 
+    //para que no se vea raro
     let btn = document.getElementById('btn-entrar-movil');
     btn.style.transition = 'all 0s';
     let cerrar = document.getElementById('login');

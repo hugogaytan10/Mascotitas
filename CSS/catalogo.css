@@ -56,11 +56,11 @@
 .detalles-producto{
     width: 80%;
     height: 90vh;
-    background-color: rgb(255, 255, 255);
     position: absolute;
+    background-color: rgb(255, 255, 255);
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     border-radius: 16px;
     visibility: hidden;
 }

@@ -172,9 +172,15 @@
     margin: auto;
     width: 45%;
     height: 35px;
-    color: #fff;
-    background-color: #000;
+    color: #000;
+    border: none;
+    background-color: rgb(85, 9, 208, 0.2);
     border-radius: 16px;
+    transition: all 0.7s;
+}
+.logOut:hover {
+    width: 60%;
+    cursor: pointer;
 }
 @media screen and (min-width: 500px) {
     .abrirModal {

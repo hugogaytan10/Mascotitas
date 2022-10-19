@@ -44,7 +44,7 @@ const UserLogin = async () => {
             this.document.getElementById('btn-out-pc').style.visibility = 'hidden';
             this.document.getElementById('btn-out-movil').style.visibility = 'hidden';
         }
-    } catch (e) { console.log(e) }
+    } catch (e) { console.log("Oh no, tuvimos un error, lo bueno... se trato :)") }
 
 }
 

@@ -130,7 +130,7 @@ const abrirModal = async () => {
 const cerrarModal = async () => {
     //como el boton tiene una transicion se la debemos quitar 
     //para que no se vea raro
-    let btn = document.getElementById('btn-entrar-movil');
+    let btn = document.getElementById('btn-out-movil');
     btn.style.transition = 'all 0s';
     let cerrar = document.getElementById('login');
     cerrar.style.visibility = 'hidden';
